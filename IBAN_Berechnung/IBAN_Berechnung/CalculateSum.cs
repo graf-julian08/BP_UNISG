@@ -235,7 +235,7 @@ namespace IBAN_Berechnung
 
             string resultMod98 = (98 - (int)resultMod).ToString("D2");
 
-            string result = countryCode + resultMod98 + BBAN;
+            string result = ($"{countryCode}{resultMod98}{BBAN}");
 
             //Console.WriteLine(result);
 
