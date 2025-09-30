@@ -1,25 +1,23 @@
-﻿namespace Inheritance
+﻿using System;
+
+namespace InheritanceCars
 {
     public interface SportsCar
     {
         void WhatAreYou();
     }
-
     public interface GermanCar
     {
         void WhatAreYou();
     }
-
     public abstract class Car
     {
         public virtual void WhatAreYou() { Console.WriteLine("I am a Car"); }
     }
-
     public abstract class Golf : GermanCar
     {
         public virtual void WhatAreYou() { Console.WriteLine("I am a Golf"); }
     }
-
     public class GolfGTI : Golf, SportsCar
     {
         public override void WhatAreYou() { Console.WriteLine("I am a Golf GTI"); }
@@ -28,7 +26,6 @@
     {
         public override void WhatAreYou() { Console.WriteLine("eeh du, echt cool"); }
     }
-
     public class Opel : Car, GermanCar
     {
         public override void WhatAreYou() { Console.WriteLine("I am a Opel"); }
