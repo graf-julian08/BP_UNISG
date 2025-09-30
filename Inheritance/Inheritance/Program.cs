@@ -47,7 +47,7 @@ namespace InheritanceCars
             ((Opel)car1).WhatAreYou(); // output = I'm a Opel
             ((GolfGTI)car2).WhatAreYou(); // I'm a GTI
             ((Manta)car1).WhatAreYou(); // ehh du, echt cool
-            ((SportsCar)car1).WhatAreYou(); // eeh du, echt cool
+            ((SportsCar)car1).WhatAreYou(); // I'm a Opel
             car2.WhatAreYou(); // I'm a Golf GTI
             car1.WhatAreYou(); // I'm a Opel
         }

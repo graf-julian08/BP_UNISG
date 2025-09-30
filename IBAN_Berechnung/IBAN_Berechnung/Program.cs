@@ -5,7 +5,10 @@
         static void Main(string[] args)
         {
             CalculateSum calcSum = new CalculateSum();
-            calcSum.IBANSum("70090100", "1234567890", "CH");
+            string result = calcSum.IBANSum("70090100", "1234567890", "CH");
+
+            CalculateValidator valid = new CalculateValidator();
+            valid.ValidateIBAN("AT411100000237571501");
         }
     }
 }
