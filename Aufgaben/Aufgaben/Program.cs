@@ -1,4 +1,4 @@
-﻿namespace DirectoryZuIndex
+﻿namespace Aufgaben
 {
     internal class Program
     {

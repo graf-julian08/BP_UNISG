@@ -1,7 +1,7 @@
-﻿namespace DirectoryZuIndexTest
+﻿namespace DictionaryZuIndexTest
 {
     [TestClass]
-    public sealed class Test1
+    public sealed class DictionaryTest
     {
         [TestMethod]
         public void TestMethod1()
