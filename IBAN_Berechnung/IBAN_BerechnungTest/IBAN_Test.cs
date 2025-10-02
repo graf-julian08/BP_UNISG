@@ -12,7 +12,7 @@ namespace IBAN_BerechnungTest
             string accountNumber = "70090100";
             string bankCode = "1234567890"; 
             string countryCode = "CH";
-            string expectedResult = "CH08700901001234567890";
+            string expectedResult = "CH79123456789070090100";
 
             // Act
             CalculateSum calc = new CalculateSum();
@@ -29,7 +29,7 @@ namespace IBAN_BerechnungTest
             string accountNumber = "98108225";
             string bankCode = "0987654321";
             string countryCode = "CH";
-            string expectedResult = "CH02981082250987654321";
+            string expectedResult = "CH95098765432198108225";
 
             // Act
             CalculateSum calc = new CalculateSum();
@@ -46,7 +46,7 @@ namespace IBAN_BerechnungTest
             string accountNumber = "81364286";
             string bankCode = "1029384756";
             string countryCode = "DE";
-            string expectedResult = "DE44813642861029384756";
+            string expectedResult = "DE50102938475681364286";
 
             // Act
             CalculateSum calc = new CalculateSum();
