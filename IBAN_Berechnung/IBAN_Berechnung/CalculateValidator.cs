@@ -8,6 +8,18 @@ namespace IBAN_Berechnung
         {
             string countryCode = null;
 
+            if (string.IsNullOrEmpty(iban) || iban.Length < 3)
+                return false;
+
+             if (!char.IsLetter(iban[0]) || !char.IsLetter(iban[1]))
+                return false;
+
+            for (int i = 2; i < iban.Length; i++)
+            {
+                if (!char.IsDigit(iban[i]))
+                    return false;
+            }
+
             int firstNumber = int.Parse(iban[2].ToString());
             int secondNumber = int.Parse(iban[3].ToString());
 
