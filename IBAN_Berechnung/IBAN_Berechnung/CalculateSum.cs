@@ -20,8 +20,7 @@ namespace IBAN_Berechnung
                 return null;
             }
 
-            if (string.IsNullOrEmpty(countryCode) || countryCode.Length != 2 || !countryCode.All(char.IsLetter))
-            {
+            if (string.IsNullOrEmpty(countryCode) || !countryCode.All(char.IsLetter) || countryCode.Length != 2) {
                 Console.WriteLine("Ungültige Ländervorwahl");
                 return null;
             }

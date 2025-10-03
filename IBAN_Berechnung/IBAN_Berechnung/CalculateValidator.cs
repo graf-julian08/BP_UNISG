@@ -17,7 +17,9 @@ namespace IBAN_Berechnung
             for (int i = 2; i < iban.Length; i++)
             {
                 if (!char.IsDigit(iban[i]))
+                {
                     return false;
+                }
             }
 
             int firstNumber = int.Parse(iban[2].ToString());
