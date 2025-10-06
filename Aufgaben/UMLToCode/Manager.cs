@@ -8,12 +8,10 @@
         {
             Bonus = bonus;
         }
-
         public int GetBonus()
         {
             return Bonus;
         }
-
         public int GetSalary()
         {
             return MonthlySalary + Bonus;

@@ -2,16 +2,18 @@
 {
     public class Department
     {
-        public List<Employee> employeeList = new List<Employee>();
+        public List<Employee> EmployeeList { get; private set; } = new List<Employee>();
+
         public int LoanCosts(Manager manager)
         {
-            int loanCosts = manager.GetSalary();
+            int loanCosts = 0;
 
-            foreach (Employee employee in employeeList)
+            foreach (Employee employee in EmployeeList)
             {
                 loanCosts += employee.GetMonthlySalary();
             }
 
+            loanCosts += manager.GetSalary();
             return loanCosts;
         }
     }

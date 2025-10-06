@@ -6,17 +6,18 @@
         {
             Employee employee1 = new Employee("Philipp", 9000);
             Employee employee2 = new Employee("Markus", 8500);
-            Employee employee3 = new Employee("Julian", 7000);
+            Employee employee3 = new Employee("Julian", 8000);
+
             Manager manager = new Manager("Nazar", 10000, 2000);
 
             Department department = new Department();
-            department.employeeList.Add(employee1);
-            department.employeeList.Add(employee2);
-            department.employeeList.Add(employee3);
+            department.EmployeeList.Add(employee1);
+            department.EmployeeList.Add(employee2);
+            department.EmployeeList.Add(employee3);
 
             int loanCosts = department.LoanCosts(manager);
 
-            foreach (var employee in department.employeeList)
+            foreach (Employee employee in department.EmployeeList)
             {
                 Console.WriteLine($"{employee.Name} ist angestellt und verdient {employee.GetMonthlySalary()}Fr. pro Monat.\n-------------------------------------------------------");
             }
