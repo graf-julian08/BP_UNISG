@@ -16,7 +16,7 @@
 
         public int getSalary()
         {
-            return monthlySalary + Bonus;
+            return MonthlySalary + Bonus;
         }
     }
 }

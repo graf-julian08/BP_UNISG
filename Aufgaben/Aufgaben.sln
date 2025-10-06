@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryZuIndexTest", "Di
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMLToCode", "UMLToCode\UMLToCode.csproj", "{35356E5A-926C-42C8-8171-299EAA66A5D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMLToCodeTest", "UMLToCodeTest\UMLToCodeTest.csproj", "{C24295D6-452D-47F9-8814-5323F4F7B0E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{35356E5A-926C-42C8-8171-299EAA66A5D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35356E5A-926C-42C8-8171-299EAA66A5D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35356E5A-926C-42C8-8171-299EAA66A5D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C24295D6-452D-47F9-8814-5323F4F7B0E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C24295D6-452D-47F9-8814-5323F4F7B0E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C24295D6-452D-47F9-8814-5323F4F7B0E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C24295D6-452D-47F9-8814-5323F4F7B0E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
