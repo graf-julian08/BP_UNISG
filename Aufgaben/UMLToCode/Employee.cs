@@ -11,7 +11,7 @@
             MonthlySalary = monthlySalary;
         }
 
-        public int getMonthlySalary()
+        public int GetMonthlySalary()
         {
             return MonthlySalary;
         }

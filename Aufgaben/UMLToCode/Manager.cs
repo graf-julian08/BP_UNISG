@@ -9,12 +9,12 @@
             Bonus = bonus;
         }
 
-        public int getBonus()
+        public int GetBonus()
         {
             return Bonus;
         }
 
-        public int getSalary()
+        public int GetSalary()
         {
             return MonthlySalary + Bonus;
         }

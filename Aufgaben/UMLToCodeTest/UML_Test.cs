@@ -4,99 +4,114 @@
     public sealed class UML_Test
     {
         [TestMethod]
-        public void TestUML1()
+        public void Test_Manager_Salary5000_Bonus2000()
         {
             // Arrange
-            UMLToCode.Employee employee = new UMLToCode.Employee("Julian", 5000);
-            UMLToCode.Manager manager = new UMLToCode.Manager("Philipp", employee.getMonthlySalary(), 2000);
+            var employee = new UMLToCode.Employee("Julian", 5000);
+            var manager = new UMLToCode.Manager("Philipp", employee.GetMonthlySalary(), 2000);
 
             int expectedResult = 7000;
 
             // Act
-            int managerSalary = employee.getMonthlySalary() + manager.getBonus();
+            int managerSalary = employee.GetMonthlySalary() + manager.GetBonus();
 
             // Assert
             Assert.AreEqual(expectedResult, managerSalary);
         }
 
         [TestMethod]
-        public void TestUML2()
+        public void Test_Manager_Salary8000_Bonus1000()
         {
             // Arrange
-            UMLToCode.Employee employee = new UMLToCode.Employee("Hans", 8000);
-            UMLToCode.Manager manager = new UMLToCode.Manager("Max", employee.getMonthlySalary(), 1000);
-
-            int expectedResult = 9000;
+            var employee = new UMLToCode.Employee("Hans", 8000);
+            var manager = new UMLToCode.Manager("Max", employee.GetMonthlySalary(), 1000);
+            int expectedSalary = 9000;
 
             // Act
-            int managerSalary = employee.getMonthlySalary() + manager.getBonus();
+            int expectedResult = manager.GetSalary();
 
             // Assert
-            Assert.AreEqual(expectedResult, managerSalary);
+            Assert.AreEqual(expectedSalary, expectedResult);
         }
 
         [TestMethod]
-        public void TestUML3()
+        public void Test_ManagerSalary_Greater_EmployeeSalary()
         {
             // Arrange
             UMLToCode.Employee employee = new UMLToCode.Employee("Peter", 5000);
-            UMLToCode.Manager manager = new UMLToCode.Manager("Rainer", employee.getMonthlySalary(), 3000);
+            UMLToCode.Manager manager = new UMLToCode.Manager("Rainer", employee.GetMonthlySalary(), 3000);
 
-            int expectedResult = 8000;
+            bool expectedResult = true;
 
             // Act
-            int managerSalary = employee.getMonthlySalary() + manager.getBonus();
+            int managerSalary = employee.GetMonthlySalary() + manager.GetBonus();
+            if (managerSalary > employee.GetMonthlySalary())
+            {
+                expectedResult = true;
+            }
+            else
+            {
+                expectedResult = false;
+            }
 
             // Assert
-            Assert.AreEqual(expectedResult, managerSalary);
+            Assert.IsTrue(expectedResult);
         }
 
         [TestMethod]
-        public void TestUMLWrong1()
+        public void WrongTest_Manager_Salary6000_Bonus1000()
         {
             // Arrange
-            UMLToCode.Employee employee = new UMLToCode.Employee("Marta", 2000);
-            UMLToCode.Manager manager = new UMLToCode.Manager("Joel", employee.getMonthlySalary(), 500);
+            UMLToCode.Employee employee = new UMLToCode.Employee("Marta", 6000);
+            UMLToCode.Manager manager = new UMLToCode.Manager("Joel", employee.GetMonthlySalary(), 1000);
 
-            int expectedResult = 3500;
+            int expectedResult = 5000;
 
             // Act
-            int managerSalary = employee.getMonthlySalary() + manager.getBonus();
+            int managerSalary = employee.GetMonthlySalary() + manager.GetBonus();
 
             // Assert
             Assert.AreNotEqual(expectedResult, managerSalary);
         }
 
         [TestMethod]
-        public void TestUMLWrong2()
+        public void WrongTest_Manager_Salary8000_Bonus2000()
         {
             // Arrange
-            UMLToCode.Employee employee = new UMLToCode.Employee("Timo", 9000);
-            UMLToCode.Manager manager = new UMLToCode.Manager("Markus", employee.getMonthlySalary(), 3500);
+            UMLToCode.Employee employee = new UMLToCode.Employee("Timo", 8000);
+            UMLToCode.Manager manager = new UMLToCode.Manager("Markus", employee.GetMonthlySalary(), 2000);
 
             int expectedResult = 11000;
 
             // Act
-            int managerSalary = employee.getMonthlySalary() + manager.getBonus();
+            int managerSalary = employee.GetMonthlySalary() + manager.GetBonus();
 
             // Assert
             Assert.AreNotEqual(expectedResult, managerSalary);
         }
 
         [TestMethod]
-        public void TestUMLWrong3()
+        public void WrongTest_ManagerSalary_Greater_EmployeeSalary()
         {
             // Arrange
             UMLToCode.Employee employee = new UMLToCode.Employee("Robin", 4000);
-            UMLToCode.Manager manager = new UMLToCode.Manager("Michelle", employee.getMonthlySalary(), 1500);
+            UMLToCode.Manager manager = new UMLToCode.Manager("Michelle", employee.GetMonthlySalary(), -1500);
 
-            int expectedResult = 500;
+            bool expectedResult = false;
 
             // Act
-            int managerSalary = employee.getMonthlySalary() + manager.getBonus();
+            int managerSalary = employee.GetMonthlySalary() + manager.GetBonus();
+            if (managerSalary > employee.GetMonthlySalary())
+            {
+                expectedResult = true;
+            }
+            else
+            {
+                expectedResult = false;
+            }
 
             // Assert
-            Assert.AreNotEqual(expectedResult, managerSalary);
+            Assert.IsFalse(expectedResult);
         }
     }
 }

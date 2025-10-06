@@ -2,9 +2,16 @@
 {
     public class Department
     {
-        public int loanCosts(Manager manager, Employee employee)
+        public List<Employee> employeeList = new List<Employee>();
+        public int LoanCosts(Manager manager)
         {
-            int loanCosts = manager.getSalary() + employee.getMonthlySalary();
+            int loanCosts = manager.GetSalary();
+
+            foreach (Employee employee in employeeList)
+            {
+                loanCosts += employee.GetMonthlySalary();
+            }
+
             return loanCosts;
         }
     }
