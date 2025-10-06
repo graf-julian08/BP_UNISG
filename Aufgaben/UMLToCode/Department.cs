@@ -2,9 +2,9 @@
 {
     public class Department
     {
-        public int LoanCosts()
+        public int loanCosts(Manager manager, Employee employee)
         {
-            int loanCosts = 1000;
+            int loanCosts = manager.getSalary() + employee.getMonthlySalary();
             return loanCosts;
         }
     }

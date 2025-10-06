@@ -4,16 +4,14 @@
     {
         static void Main(string[] args)
         {
-            Employee employee = new Employee("Philipp", 6000);
-            int monthlySalaryEmployee = employee.getMonthlySalary(6000);
+            Employee employee = new Employee("Philipp", 9000);
 
-            Manager manager = new Manager(2000, "Julian", 6000);
-            int monthlySalaryManager = manager.getBonus(6000, 2000);
+            Manager manager = new Manager("Julian", employee.getMonthlySalary(), 2000);
 
             Department department = new Department();
-            int loanCosts = department.LoanCosts();
+            int loanCosts = department.loanCosts(manager, employee);
 
-            Console.WriteLine($"Angestellter {employee} verdient {monthlySalaryEmployee}Fr. pro Monat. Der Manager verdient {monthlySalaryManager}Fr. pro Monat. Die Lohnkosten in der Abteilung sind {loanCosts}.");
+            Console.WriteLine($"{employee.Name} verdient {employee.getMonthlySalary()}Fr. pro Monat. Der Manager verdient {manager.getSalary()}Fr. pro Monat, das ist {manager.getBonus()}Fr. mehr als der Angestellte. Die gesamten Lohnkosten in der Abteilung betragen {loanCosts}Fr.");
         }
     }
 }
