@@ -32,20 +32,14 @@ namespace IBAN_Berechnung
 
             string subresult = ($"{iban}{transformedLetters}{firstNumber}{secondNumber}").Substring(4);
 
-            //Console.WriteLine(subresult);
-
             int checkOne = (int)(BigInteger.Parse(subresult) % 97);
-
-            //Console.WriteLine(checkOne);
 
             if (checkOne == 1)
             {
-                Console.WriteLine("true");
                 return true;
             }
             else
             {
-                Console.WriteLine("False");
                 return false;
             }
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace IBAN_Berechnung
 {
@@ -10,41 +9,37 @@ namespace IBAN_Berechnung
 
             if (string.IsNullOrEmpty(accountNumber) || accountNumber.Length < 3 || !accountNumber.All(char.IsDigit))
             {
-                Console.WriteLine("Ungültige Kontonummer");
-                return null;
+                return "Ungültige Kontonummer";
             }
 
             if (string.IsNullOrEmpty(bankCode) || bankCode.Length < 5 || !bankCode.All(char.IsDigit))
             {
-                Console.WriteLine("Ungültige Bankleitzahl");
-                return null;
+                return "Ungültige Bankleitzahl";
             }
 
             if (string.IsNullOrEmpty(countryCode) || !countryCode.All(char.IsLetter) || countryCode.Length != 2) {
-                Console.WriteLine("Ungültige Ländervorwahl");
-                return null;
+                return "Ungültige Ländervorwahl";
             }
 
             string iban = null;
-                string BBAN = ($"{bankCode}{accountNumber}");
+            string bban = ($"{bankCode}{accountNumber}");
 
 
-                CountryCode cc = new CountryCode();
-                string transformedLetters = cc.TransformLetter(iban, countryCode);
+            CountryCode cc = new CountryCode();
+            string transformedLetters = cc.TransformLetter(iban, countryCode);
 
 
-                string subresult = ($"{BBAN}{transformedLetters}00");
+            string subresult = ($"{bban}{transformedLetters}00");
 
-                BigInteger ibanNumber = BigInteger.Parse(subresult);
+            BigInteger ibanNumber = BigInteger.Parse(subresult);
 
-                int remainder = (int)(ibanNumber % 97);
+            int remainder = (int)(ibanNumber % 97);
 
-                int remainder98 = 98 - remainder;
+            int remainder98 = 98 - remainder;
 
-                iban = ($"{countryCode}{remainder98:D2}{BBAN}");
+            iban = ($"{countryCode}{remainder98:D2}{bban}");
 
-                //Console.WriteLine(iban);
-                return iban;
+            return iban;
         }
     }
 }
