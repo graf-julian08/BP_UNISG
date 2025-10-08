@@ -10,8 +10,8 @@ class GenerateList
         int count = 100_000_000;
         var rand = new Random();
 
-        using (var fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None, 1_048_576))
-        using (var writer = new StreamWriter(fs, Encoding.UTF8, 1_048_576))
+        using (var fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None, 65_536))
+        using (var writer = new StreamWriter(fs, Encoding.UTF8, 65_536))
         {
             for (int i = 0; i < count; i++)
             {
