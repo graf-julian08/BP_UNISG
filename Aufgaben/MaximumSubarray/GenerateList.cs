@@ -7,7 +7,7 @@ class GenerateList
         string path = Path.GetFullPath("numbers.txt");
         Console.WriteLine("Generating random numbers...");
 
-        int count = 100_000_000;
+        int count = 1_000_000;
         var rand = new Random();
 
         using (var fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None, 65_536))
