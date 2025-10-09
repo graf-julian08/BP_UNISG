@@ -4,18 +4,26 @@ namespace MaximumSubarray
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();
+            Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+            int listLength = 100000000;
 
             GenerateList generator = new GenerateList();
-            generator.GenerateRandomList();
+            generator.GenerateRandomList(listLength);
 
-            string path = System.IO.Path.GetFullPath("numbers.txt");
-            string fileContent = System.IO.File.ReadAllText(path);
+            string listPath = "numbers.txt";
+            List<int> numberList = new List<int>();
 
-            StartArray array = new StartArray();
-            List<int> numberList = array.CreateArray(fileContent);
+            foreach (var line in File.ReadLines(listPath))
+            {
+                foreach (var numStr in line.Split(','))
+                {
+                    if (int.TryParse(numStr, out int num))
+                        numberList.Add(num);
+                }
+            }
 
             Subarray subarray = new Subarray();
             subarray.FindMaxSubarray(numberList);

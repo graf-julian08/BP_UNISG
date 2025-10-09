@@ -2,31 +2,36 @@
 {
     public class Subarray
     {
-        public (int maxSum, int maxSumStartPosition, int maxSumEndPosition) FindMaxSubarray(List<int> numberList)
+        public (int maxSum, int maxSumStartPos, int maxSumEndPos) FindMaxSubarray(List<int> numberList)
         {
             int maxSum = numberList[0];
-            int maxSumStartPosition = 0;
-            int maxSumEndPosition = 0;
+            int currentSum = numberList[0];
+            int maxSumStartPos = 0;
+            int newStartPos = 0;
+            int maxSumEndPos = 0;
 
-            for (int startPosition = 0; startPosition < numberList.Count; startPosition++)
+            for (int currentPos = 1; currentPos < numberList.Count; currentPos++)
             {
-                int sum = 0;
-                for (int endPosition = startPosition; endPosition < numberList.Count; endPosition++)
+                if (currentSum + numberList[currentPos] < numberList[currentPos])
                 {
+                    currentSum = numberList[currentPos];
+                    newStartPos = currentPos;
+                }
+                else
+                {
+                    currentSum += numberList[currentPos];
+                }
 
-                    sum += numberList[endPosition];
-
-                    if (sum > maxSum)
-                    {
-                        maxSum = sum;
-                        maxSumStartPosition = startPosition;
-                        maxSumEndPosition = endPosition;
-                    }
+                if (currentSum > maxSum)
+                {
+                    maxSum = currentSum;
+                    maxSumStartPos = newStartPos;
+                    maxSumEndPos = currentPos;
                 }
             }
 
-            Console.WriteLine($"\nDie grösste Summe ist {maxSum}, von {maxSumStartPosition} bis {maxSumEndPosition}.");
-            return (maxSum, maxSumStartPosition, maxSumEndPosition);
+            Console.WriteLine($"\nDie grösste Summe ist {maxSum}, von {maxSumStartPos} bis {maxSumEndPos}.");
+            return (maxSum, maxSumStartPos, maxSumEndPos);
         }
     }
 }
